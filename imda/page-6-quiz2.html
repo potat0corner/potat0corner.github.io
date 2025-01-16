@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Quiz</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('spongebob.png');
+      background-size: cover;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    #quiz-border {
+      position: relative;
+      width: 960px;
+      height: 540px;
+      padding: 20px;
+      background: #f1fcff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    #quiz-container, #intro-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    #progress-bar {
+      width: 100%;
+      height: 20px;
+      background: #ddd;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    #progress {
+      width: 0;
+      height: 100%;
+      background: #47d88d;
+      transition: width 0.3s;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+
+    .options button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+      background-color: #e0e0e0;
+      transition: background-color 0.3s;
+    }
+
+    .options button:hover {
+      background-color: #53a6ff;
+      color: white;
+    }
+
+    .options button.correct {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    .options button.incorrect {
+      background-color: #f44336;
+      color: #fff;
+    }
+
+    .congrats {
+      color: #bb00ff;
+    }
+
+    .final {
+      background-color: #6e00b3;
+      color: #f1fcff;
+    }
+
+    #comment {
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+
+    #score {
+      font-size: 1.5em;
+      margin-top: 20px;
+      display: none;
+    }
+
+    #score button {
+      margin: 20px;
+      padding: 10px;
+      font-size: 1em;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: rgb(0, 126, 158);
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s ease-in-out;
+    }
+
+    #score button:hover {
+      background-color: #53a6ff;
+      transform: scale(1.05);
+      color: #fff;
+    }
+
+    #runner {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        animation: run-border 20s linear infinite;
+        z-index: 5; /* Ensure it appears below the button */
+        }
+
+        #runner img {
+        width: 100px;
+        }
+
+        /* Animation keyframes */
+        @keyframes run-border {
+        0% {
+            top: 0;
+            left: 0;
+        }
+        25% {
+            top: 0;
+            left: calc(100% - 100px); /* Move to the right edge */
+        }
+        50% {
+            top: calc(100% - 100px); /* Move to the bottom-right */
+            left: calc(100% - 100px);
+        }
+        75% {
+            top: calc(100% - 100px); /* Move to the bottom-left */
+            left: 0;
+        }
+        100% {
+            top: 0;
+            left: 0;
+        }
+        }
+
+        /* Update the positioning relative to the #quiz-border */
+        #quiz-border {
+        position: relative; /* Set relative positioning to act as a boundary */
+        overflow: hidden;   /* Ensure the runner does not overflow the container */
+        }
+
+  </style>
+</head>
+<body>
+  <div id="quiz-border">
+    <div id="quiz-container">
+      <h1>AI Tools Quiz</h1>
+      <div id="progress-bar">
+        <div id="progress"></div>
+      </div>
+      <div id="quiz">
+        <p id="question-number">Question 1/3</p>
+        <p class="question"></p>
+        <div class="options"></div>
+        <div id="comment"></div>
+      </div>
+      <div id="score" style="display: none;"></div>
+    </div>
+
+    <!-- Runner -->
+    <div id="runner">
+      <img src="gary-quiz.png" alt="gary">
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      { 
+        question: "What is the main purpose of MidJourney AI?", 
+        options:  ["To edit videos automatically", "To write essays using AI", "To generate music tracks", "To create images from text prompts"], 
+        answer: 3, 
+        comment: "MidJourney AI is a generative AI tool that allows for users to create images based on their unique prompt."
+      },
+      { 
+        question: "Which feature of ChatGPT allows users to generate detailed text outputs based on prompts?", 
+        options: ["Vision-to-Text Integration", "Conversational Context Memory", " Image Rendering", "Speech-to-Text Processing"], 
+        answer: 1, 
+        comment: "In conversational applications, this feature plays a central role in any type of interaction between the Chatbot and the user."
+      },
+      { 
+        question: "All AI tools require advanced programming knowledge to use. True or False?", 
+        options: ["True", "False"], 
+        answer: 1, 
+        comment: "AI in fact does not require a high level of programming knowledge to use ~ Easy & Efficient!"
+      },
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const question = questions[currentQuestion];
+      $("#question-number").text(`Question ${currentQuestion + 1}/${questions.length}`);
+      $(".question").text(question.question);
+      $(".options").empty();
+      question.options.forEach((option, index) => {
+        $(".options").append(`<button data-index="${index}">${option}</button>`);
+      });
+      $("#comment").text("");
+    }
+
+    function updateProgressBar() {
+      const progress = ((currentQuestion + 1) / questions.length) * 100;
+      $("#progress").css("width", `${progress}%`);
+    }
+
+    $(document).ready(function () {
+      loadQuestion();
+      updateProgressBar();
+
+      $(".options").on("click", "button", function () {
+        $(".options button").attr("disabled", "disabled");
+        const selected = $(this).data("index");
+        const question = questions[currentQuestion];
+
+        if (selected === question.answer) {
+          $(this).addClass("correct");
+          score++;
+        } else {
+          $(this).addClass("incorrect");
+          $(`.options button[data-index='${question.answer}']`).addClass("correct");
+        }
+
+        $("#comment").text(question.comment);
+
+        setTimeout(() => {
+          currentQuestion++;
+          if (currentQuestion < questions.length) {
+            loadQuestion();
+            updateProgressBar();
+          } else {
+            $("#quiz").hide();
+            let msg = score < 3 ? "<img src='tryagain.gif' width='400' /><br/><h2>You can do better than that!</h2> Try again!" : "<img src='goodjob.gif' width='400' /><br/><h2>WOW! You did really well.</h2>";
+            $("#score").fadeIn(3000).html(msg + ` You scored ${score} out of ${questions.length}!`);
+
+            if (score === questions.length) {
+              // Show Next Lesson button if score is perfect
+              $("#score").append("<br/><a href='risks-page7.html'><button id='next-lesson-button'>Next Lesson</button></a>");
+            } else {
+              // Show Restart button if score is not perfect
+              $("#score").append("<br/><button id='restart-button'>Restart</button>");
+              $("#restart-button").click(function () {
+                location.reload();  // Reload the page to restart the quiz
+              });
+            }
+          }
+        }, 4000);
+      });
+    });
+  </script>
+</body>
+</html>

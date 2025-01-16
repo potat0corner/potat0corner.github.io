@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Generative AI?</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('spongebob-page.png');
+            background-size: cover;
+            height: 100vh;
+            cursor: url('jellyfish cursor.png'), auto;
+        }
+
+        /* Container Styles */
+        .container {
+            width: 960px;
+            height: 540px;
+            background-color: rgb(252, 252, 252);
+            border: 4px solid #9500ac;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Back Arrow Styles */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem; 
+            font-weight: 300; 
+            color: #9500ac; 
+            text-decoration: none; 
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 10px;
+        }
+
+        .back-arrow:hover {
+            background-color: #dfefff;
+        }
+
+        /* Left Content Box Styles */
+        .left-content-box {
+            width: 70%;
+            display: grid;
+            grid-template-columns: 1fr; 
+            grid-gap: 15px; 
+            margin-right: 20px; 
+        }
+
+
+        /* Individual Content Box Styles */
+        .content-box {
+            background-color: #f1fcff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between rows inside content box */
+        }
+
+
+        /* Row Styles for Aligning Heading and Text */
+        .row {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 25px; 
+        }
+
+        /* Heading Styles */
+        .row h2 {
+            font-size: 1.2rem;
+            color: #dd67c3;
+            margin: 0;
+            flex-shrink: 0; 
+            width: 20%; 
+            text-align: left;
+        }
+
+        /* Paragraph Styles */
+        .row p {
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+            flex-grow: 1; /* Allow the paragraph to fill remaining space */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        /* Right Side Box Styles */
+        .right-content-box {
+            width: 30%; /* 30% of the container */
+            height: 85%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-left: 20px; /* Optional: Adds space to the left side */
+        }
+
+        .right-content-box img {
+            width: 80%; /* Adjusted image width */
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .right-content-box .image-text {
+            font-size: 0.9rem;
+            color: #333;
+            text-align: center;
+            margin-top: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        /* Headline Wrapper Styles */
+        .headline-wrapper {
+            grid-column: 1 / span 1; /* Single column */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #003572;
+            margin-bottom: 30px; 
+            margin-top: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h2 {
+            font-size: 1rem;
+            color: #555;
+            line-height: 24px;
+            max-width: 90%;
+            margin-left: 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        /* Navigation Button */
+        .nav-btn {
+            position: absolute;
+            bottom: 5px;
+            margin-bottom: 165px;
+            padding: 10px 20px;
+            background-color: #53a6ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.5s;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .nav-btn:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Back Arrow -->
+        <a href="page-2-ai.html" class="back-arrow">←</a>
+
+        <!-- Left Content Box -->
+        <div class="left-content-box">
+            <!-- Headline -->
+            <div class="headline-wrapper">
+                <h1>What is Generative AI?</h1>
+                <h2>Generative AI is a type of AI that specialises in creating new content rather than just processing existing information.</h2>
+            </div>
+            <!-- Grid Content -->
+            <div class="content-box">
+                <div class="row">
+                    <h2>Creation</h2>
+                    <p>Generation of new content: images, text, music, video.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <div class="row">
+                    <h2>Adaptation</h2>
+                    <p>Improving their output based on data to fit users' needs.</p>
+                </div>
+            </div>
+            <div class="content-box">
+                <div class="row">
+                    <h2>Automation</h2>
+                    <p>Automation of content creation processes, saving time and effort in fields like design.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side Box -->
+        <div class="right-content-box">
+            <img src="output-1.png" alt="Generative AI Image Example">
+            <p class="image-text"><b>Generation of unique images</b> from simple descriptions or prompts.</p>
+            <p class="image-text"><i>Prompt: spongebob eating a pineapple</i></p>
+        </div>
+    </div>
+
+    <!-- Navigation Button -->
+    <a href="page-4-quiz1.html" class="nav-btn">Next: Quiz Time!</a>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More: MidJourney</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('spongebob-page.png');
+            background-size: cover;
+            height: 100vh;
+            cursor: url('jellyfish cursor.png'), auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        /* Container Styles */
+        .container {
+            width: 960px;
+            height: 540px;
+            background-color: rgb(252, 252, 252);
+            border: 4px solid #9500ac;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Header Style */
+        header {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #003572;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /* Sections (Horizontal Layout) */
+        .sections {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Spacing between columns */
+        }
+
+        /* Individual Section Style */
+        .section {
+            flex: 1; /* Evenly distribute columns */
+            background-color: #ffffd5;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 100px;
+        }
+
+        /* Specific sizes for each image */
+        .section .step1-img {
+            width: 100%; /* Adjust the width for Step 1 image */
+            height: auto;
+        }
+
+        .section .step2-img {
+            width: 100%; /* Adjust the width for Step 2 image */
+            height: auto;
+        }
+
+        .section .step3-img {
+            width: 100%; /* Adjust the width for Step 3 image */
+            height: 70%;
+        }
+
+        .section img {
+            width: 60%; /* Adjust image size */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .section .title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2e2e2e;
+            margin-bottom: 5px;
+        }
+
+        .section .description {
+            font-size: 0.9rem;
+            color: #333;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /* Back Arrow Style */
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #9a9a9a;
+            text-decoration: none;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #000000;
+        }
+
+        /* CTA Button Style */
+        .cta-btn {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #53a6ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+            transition: background-color 0.5s;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Back Arrow Button -->
+        <a href="common-ai-tools-page5-part2.html" class="back-btn">&#8592; Back</a>
+    
+        <!-- Header -->
+        <header><b>Learn More: MidJourney AI!</b></header>
+    
+        <!-- Sections -->
+        <div class="sections">
+            <div class="section">
+                <img src="journey-step1.png" alt="Step 1" class="step1-img">
+                <div class="title">Step 1</div>
+                <div class="description"> Sign up for MidJourney AI and create your account.</div>
+            </div>
+            <div class="section">
+                <img src="journey-step2.png" alt="Step 2" class="step2-img">
+                <div class="title">Step 2</div>
+                <div class="description">Use the text prompt input field to describe the image you want to create.</div>
+            </div>
+            <div class="section">
+                <img src="journey-step3.png" alt="Step 3" class="step3-img">
+                <div class="title">Step 3</div>
+                <div class="description"> Wait, Download and Refine your images to fit your exact needs!</br></div>
+            </div>
+        </div>        
+    
+        <!-- Start Using MidJourney Button -->
+        <a href="https://www.midjourney.com/explore?tab=top" target="_blank" class="cta-btn">Start Using MidJourney AI</a>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools & Uses</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('spongebob-page.png');
+            background-size: cover;
+            height: 100vh;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            cursor: url('jellyfish cursor.png'), auto;
+        }
+
+        /* Container Styles */
+        .container {
+            width: 960px;
+            height: 540px;
+            background-color: rgb(252, 252, 252);
+            border: 4px solid #9500ac;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Back Arrow Styles */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            font-weight: 300;
+            color: #9500ac;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 10px;
+        }
+
+        .back-arrow:hover {
+            background-color: #dfefff;
+        }
+
+        /* Headline Styles */
+        .headline {
+            font-size: 1.6rem;
+            color: #003572;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /* Next Button Style */
+        .next-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;  /* Position the button on the right side */
+            padding: 10px 20px;
+            background-color: #53a6ff;
+            color: white;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 23px;
+        }
+
+        .next-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Column Wrapper Styles */
+        .column-wrapper {
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Column Styles */
+        .column {
+            width: 45%;
+            background-color: #f1fcff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .column img {
+            width: 25%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .column p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #333;
+            text-align: center;
+        }
+
+        /* MidJourney Meme */
+        .column .tool-example {
+            width: 60%;
+            height: auto;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .column .tooljourney-example {
+            width: 30%;
+            height: auto;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .column .toolmureka-example {
+            width: 60%;
+            height: auto;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Side-by-side images container */
+        .side-by-side-images {
+            display: flex;
+            gap: 10px; /* Adds space between the images */
+            justify-content: center; /* Centers the images */
+            align-items: center; /* Aligns images vertically */
+        }
+
+        .side-by-side-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Text below images */
+        .img-justification {
+            font-size: 0.9rem;
+            color: #6b6a6a;
+            text-align: center;
+        }
+
+       /* Learn More Button */
+        .learn-more-btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #53a6ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.5s;
+            animation: popOut 1.5s infinite; /* Add animation here */
+        }
+
+        .learn-more-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Keyframes for the popOut animation */
+        @keyframes popOut {
+            0%, 100% {
+                transform: scale(1); /* Normal size */
+            }
+            50% {
+                transform: scale(1.1); /* Slightly larger */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Back Arrow -->
+        <a href="common-ai-tools-page5.html" class="back-arrow">←</a>
+
+        <!-- Next Button -->
+        <a href="page-6-quiz2.html" class="next-btn">Next: Quiz Time!</a>
+
+        <!-- Headline -->
+        <h1 class="headline">Common AI Tools & Uses</h1>
+
+        <!-- Columns Wrapper -->
+        <div class="column-wrapper">
+            <!-- Column 1: MidJourney -->
+            <div class="column">
+                <img src="Midjourney-Logo.png" alt="MidJourney Logo">
+                <p><b>MidJourney</b> is an AI tool focused on creating detailed, visually compelling images from text descriptions.</p>
+
+                <!-- Side-by-side images -->
+                <div class="side-by-side-images">
+                    <img src="midjourney-example.png" alt="MidJourney Tool Example" class="tooljourney-example">
+                    <img src="midjourney-meme.png" alt="MidJourney Meme Example" class="tool-example">
+                </div>
+                
+                <p class="img-justification"><i>Transforming words into vivid, imaginative artwork. <br>Example AI-generated cow by MidJourney.</br></i></p>
+                <a href="midjourney-nvt.html" class="learn-more-btn">Learn More</a>
+            </div>
+            
+            <!-- Column 2: Mureka AI -->
+            <div class="column">
+                <img src="murekaai-logo.png" alt="Mureka AI Logo" class="logo">
+                <p><b>Mureka AI</b> allows users to create personalised tracks effortlessly across various genres.</p>
+                <img src="mureka-ai.png" alt="Mureka AI Tool Example" class="toolmureka-example">
+                <a href="https://www.mureka.ai/song-detail?share_key=2iJxuAez1arHUe1q6EYcG2&is_from_share=1" target="_blank" class="listen-now" title="This takes you to Pineapple Paradise!">🎵 Click here to Listen Now!</a>
+                <p class="img-justification"><i>AI-driven analytics for better business outcomes.</i></p>
+                <a href="mureka-nvt.html" class="learn-more-btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

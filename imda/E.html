@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.U.R.E Framework</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('spongebob-page.png');
+            background-size: cover;
+            height: 100vh;
+            cursor: url('jellyfish cursor.png'), auto;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        /* Container Styles */
+        .container {
+            width: 960px;
+            height: 540px;
+            background-color: rgb(252, 252, 252);
+            border: 4px solid #9500ac;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Header Style */
+        header {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #003572;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /* Sections (Horizontal Layout) */
+        .sections {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Spacing between columns */
+        }
+
+        /* Individual Section Style */
+        .section {
+            flex: 1; /* Evenly distribute columns */
+            background-color: #ffffd5;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        /* Specific sizes for each image */
+        .section .step1-img {
+            width: 100%; /* Adjust the width for Step 1 image */
+            height: auto;
+        }
+
+        .section .step2-img {
+            width: 100%; /* Adjust the width for Step 2 image */
+            height: 70%;
+        }
+
+        .section .step3-img {
+            width: 100%; /* Adjust the width for Step 3 image */
+            height: 60%;
+        }
+
+        .section img {
+            width: 60%; /* Adjust image size */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .section .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2e2e2e;
+            margin-bottom: 20px;
+        }
+
+        .section .description {
+            font-size: 0.9rem;
+            color: #333;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            line-height: 18px;
+            margin-top: 10px;
+        }
+
+        /* Back Arrow Style */
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #9a9a9a;
+            text-decoration: none;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Back Arrow Button -->
+        <a href="manage-risks-page9-part2.html" class="back-btn">&#8592; Back</a>
+    
+        <!-- Header -->
+        <header><b>Evaluate from Different Angles!</b></header>
+    
+        <!-- Sections -->
+        <div class="sections">
+            <div class="section">
+                <img src="Epart1.png" alt="Step 1" class="step1-img">
+                <div class="title">Two sides to a story</div>
+                <div class="description">Some posts may be biased. There may be another side to the story.</div>
+
+            </div>
+            <div class="section">
+                <img src="Epart2.png" alt="Step 2" class="step2-img">
+                <div class="title">Exercise critical thinking</div>
+                <div class="description">Employ a skeptical mindset.</div>
+            </div>
+            <div class="section">
+                <img src="Epart3.png" alt="Step 3" class="step3-img">
+                <div class="title">Look for inconsistencies or conflicting information</div>
+                <div class="description">Always be on the lookout!</div>
+            </div>
+        </div>        
+    </div>    
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE FINAL TEST</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('spongebob.png');
+      background-size: cover;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+      cursor: url('jellyfish cursor.png'), auto;
+    }
+
+    #quiz-border {
+      position: relative;
+      width: 960px;
+      height: 540px;
+      padding: 20px;
+      background: #f1fcff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    #quiz-container, #intro-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    #progress-bar {
+      width: 100%;
+      height: 20px;
+      background: #ddd;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    #progress {
+      width: 0;
+      height: 100%;
+      background: #47d88d;
+      transition: width 0.3s;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+
+    .options button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+      background-color: #e0e0e0;
+      transition: background-color 0.3s;
+    }
+
+    .options button:hover {
+      background-color: #53a6ff;
+      color: white;
+    }
+
+    .options button.correct {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    .options button.incorrect {
+      background-color: #f44336;
+      color: #fff;
+    }
+
+    .congrats {
+      color: #bb00ff;
+    }
+
+    .final {
+      background-color: #6e00b3;
+      color: #f1fcff;
+    }
+
+    #comment {
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+
+    #score {
+      font-size: 1.5em;
+      margin-top: 20px;
+      display: none;
+    }
+
+    #score button {
+      margin: 20px;
+      padding: 10px;
+      font-size: 1em;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: rgb(0, 126, 158);
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s ease-in-out;
+    }
+
+    #score button:hover {
+      background-color: #53a6ff;
+      transform: scale(1.05);
+      color: #fff;
+    }
+
+    #intro-container h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    #intro-container p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    #intro-container button {
+      margin-top: -10px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color: #53a6ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #intro-container button:hover {
+      background-color: #0056b3;
+    }
+
+    #runner {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        animation: run-border 20s linear infinite;
+        z-index: 5; /* Ensure it appears below the button */
+        }
+
+        #runner img {
+        width: 100px;
+        }
+
+        /* Animation keyframes */
+        @keyframes run-border {
+        0% {
+            top: 0;
+            left: 0;
+        }
+        25% {
+            top: 0;
+            left: calc(100% - 100px); /* Move to the right edge */
+        }
+        50% {
+            top: calc(100% - 100px); /* Move to the bottom-right */
+            left: calc(100% - 100px);
+        }
+        75% {
+            top: calc(100% - 100px); /* Move to the bottom-left */
+            left: 0;
+        }
+        100% {
+            top: 0;
+            left: 0;
+        }
+        }
+
+        /* Update the positioning relative to the #quiz-border */
+        #quiz-border {
+        position: relative; /* Set relative positioning to act as a boundary */
+        overflow: hidden;   /* Ensure the runner does not overflow the container */
+        }
+
+
+  </style>
+</head>
+<body>
+
+   <!-- Runner -->
+  <div id="quiz-border">
+    <!-- Runner -->
+    <div id="runner">
+      <img src="spongebob-jiayou.gif" alt="jiayou">
+    </div>
+  
+    <!-- Introduction Page -->
+    <div id="intro-container">
+      <h1 class="final">The Final Test!</h1>
+      <p class="congrats">Congratulations on making it this far!</p>
+      <p>I hope you've learnt a valuable thing or two. Let's put your knowledge to the test...</p>
+      <img src="finish.gif" alt="Finishing Line GIF">
+      <p>I hope you remember the S.U.R.E framework to manage AI-generated risks 🫣</p>
+      <button id="start-quiz-button">Start Quiz</button>
+    </div>
+  
+    <!-- Quiz Page -->
+    <div id="quiz-container" style="display: none;">
+      <h1>AI Tools Quiz</h1>
+      <div id="progress-bar">
+        <div id="progress"></div>
+      </div>
+      <div id="quiz">
+        <p id="question-number">Question 1/5</p>
+        <p class="question"></p>
+        <div class="options"></div>
+        <div id="comment"></div>
+      </div>
+      <div id="score"></div>
+    </div>
+  </div>
+  
+
+  <script>
+    const questions = [
+      { 
+        question: "Which of the following AI tools is best suited for generating detailed images based on text prompts?", 
+        options:  ["ChatGPT", "MidJourney", "Google Translate", "Grammarly"], 
+        answer: 1, 
+        comment: "MidJourney creates detailed images based on prompts whereas the rest of the tools are generally text-based."
+      },
+      { 
+        question: "Which of these statements about AI-generated images is true?", 
+        options: ["They are drawn by real artists", "They are created based on algorithms analysing input prompts", "They are identical to hand-drawn art", "They cannot be customised by the user"], 
+        answer: 1, 
+        comment: "The algorithm analyses your prompts and turns it into AI-generated images."
+      },
+      { 
+        question: "What is a potential downside of relying too much on AI tools in creative fields?", 
+        options: ["Reduced manual skills", "Overdependence on technology", "Loss of original thought and creativity", "All of the above"], 
+        answer: 3, 
+        comment: "Overeliance on AI tools can reduce manual skills, original thought, and creativity as well lead to overdependance on technology."
+      },
+      { 
+        question: "You want to create a promotional video with animations but have no design skills. Which AI tool would be most suitable?", 
+        options: ["Grammarly", "ChatGPT", "Canva", "MidJourney"], 
+        answer: 2, 
+        comment: "Canva allows users to design numerous things based on given templates and elements available based on a simple search."
+      },
+      { 
+        question: "Which of the following is NOT part of the S.U.R.E framework for managing AI risks?", 
+        options: ["Source fact-checking", "Understand the information you read", "Research thoroughly", "Expect AI to make decisions autonomously"], 
+        answer: 3, 
+        comment: "E in the S.U.R.E framework stands for Evaluate from different angles."
+      },
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const question = questions[currentQuestion];
+      $("#question-number").text(`Question ${currentQuestion + 1}/${questions.length}`);
+      $(".question").text(question.question);
+      $(".options").empty();
+      question.options.forEach((option, index) => {
+        $(".options").append(`<button data-index="${index}">${option}</button>`);
+      });
+      $("#comment").text("");
+    }
+
+    function updateProgressBar() {
+      const progress = ((currentQuestion + 1) / questions.length) * 100;
+      $("#progress").css("width", `${progress}%`);
+    }
+
+    $(document).ready(function () {
+  // Show the quiz when "Start Quiz" button is clicked
+  $("#start-quiz-button").click(function () {
+    $("#intro-container").hide();
+    $("#quiz-container").show();
+    loadQuestion(); // Load the first question
+    updateProgressBar();
+  });
+
+  $(".options").on("click", "button", function () {
+    $(".options button").attr("disabled", "disabled");
+    const selected = $(this).data("index");
+    const question = questions[currentQuestion];
+
+    if (selected === question.answer) {
+      $(this).addClass("correct");
+      score++;
+    } else {
+      $(this).addClass("incorrect");
+      $(`.options button[data-index='${question.answer}']`).addClass("correct");
+    }
+
+    $("#comment").text(question.comment);
+
+    setTimeout(() => {
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    loadQuestion();
+    updateProgressBar();
+  } else {
+    $("#quiz").hide();
+    let msg = score < 5 
+      ? "<img src='tryagain.gif' width='400' /><br/><h2>You can do better than that!</h2> Try again!" 
+      : "<img src='dusted.gif' width='300' /><br/><h2>Done & Dusted! You did really well.</h2>";
+    $("#score").fadeIn(3000).html(msg + ` You scored ${score} out of ${questions.length}!`);
+
+    if (score === questions.length) {
+      $("#score").append(`
+        <br/>
+        <a href='final-page.html'><button id='next-lesson-button'>End Course</button></a>
+        <a href='welcome-page.html'><button id='redo-course-button'>Redo Course</button></a>
+      `);
+    } else {
+      $("#score").append("<br/><button id='restart-button'>Restart</button>");
+      $("#restart-button").click(function () {
+        location.reload();  // Reload the page to restart the quiz
+      });
+    }
+  }
+}, 4000);
+});
+});
+
+  </script>
+</body>
+</html>

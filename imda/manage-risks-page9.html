@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managing Risks</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('spongebob-page.png');
+            background-size: cover;
+            height: 100vh;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            cursor: url('jellyfish cursor.png'), auto;
+        }
+
+        /* Container Styles */
+        .container {
+            width: 960px;
+            height: 540px;
+            background-color: rgb(252, 252, 252);
+            border: 4px solid #9500ac;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Back Arrow Styles */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            font-weight: 300;
+            color: #9500ac;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 10px;
+        }
+
+        .back-arrow:hover {
+            background-color: #dfefff;
+        }
+
+        /* Headline Styles */
+        .headline {
+            font-size: 1.6rem;
+            color: #003572;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /* Column Wrapper Styles */
+        .column-wrapper {
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Column Styles */
+        .column {
+            width: 45%;
+            background-color: #f1fcff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* Column Header Styles */
+        .column img {
+            width: 220px; 
+            height: 200px; 
+            margin-bottom: -50px; /* Space between image and text */
+            margin-top: -20px;
+        }
+
+        /* Description Styles */
+        .column p {
+            font-size: 1rem;
+            line-height: 1;
+            color: #333;
+            text-align: center;
+            margin-bottom: 50px; /* Space between text and button */
+        }
+
+        /* Navigation Button */
+        .learn-more-btn {
+            margin-top: auto;
+            padding: 8px 15px;
+            background-color: #53a6ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.5s;
+            animation: popOut 1.5s infinite; /* Add animation here */
+        }
+
+        .learn-more-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Keyframes for the popOut animation */
+        @keyframes popOut {
+            0%, 100% {
+                transform: scale(1); /* Normal size */
+            }
+            50% {
+                transform: scale(1.1); /* Slightly larger */
+            }
+        }
+
+        /* Styling for the first image */
+        .check-the-source-meme {
+            width: 250px; /* Adjust width */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px; /* Add spacing below the image */
+            margin-top: 10px; /* Add spacing above the image */
+        }
+
+        /* Styling for the second image */
+        .understanding-meme {
+            width: 200px;
+            height: 150px; /* Specific height */
+            margin: 30px 0; /* Add top and bottom margins */
+        }
+
+        /* Navigation Button */
+        .nav-btn {
+            position: absolute;
+            top: 20px;  /* Move to the top */
+            right: 20px; /* Align to the right */
+            padding: 10px 20px;
+            background-color: #53a6ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.5s;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin-top: 140px;
+            margin-right: 270px;
+        }
+
+        .nav-btn:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Back Arrow -->
+        <a href="types-of-risks-page8.html" class="back-arrow">←</a>
+
+        <!-- Headline -->
+        <h1 class="headline">Managing AI-generated Risks!</h1>
+
+        <!-- Columns Wrapper -->
+        <div class="column-wrapper">
+            <!-- First Column -->
+            <div class="column">
+                <img src="S-managing-risks.png" alt="Source Image">
+                <p><b>Look at their origins. Are they trustworthy?</b></p>
+                <img src="Smeme.png" alt="Source Image" class="check-the-source-meme">
+                <a href="S.html" class="learn-more-btn">Learn More</a>
+            </div>
+
+            <!-- Second Column -->
+            <div class="column">
+                <img src="U-managing-risks.png" alt="Understanding Image" style="width: 260px; height: 230px; margin-top: -52px;">
+                <p><b>Know what you're reading. Search for clarity.</b></p>
+                <img src="Umeme.png" alt="Source Image" class="understanding-meme">
+                <a href="U.html" class="learn-more-btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Button -->
+    <a href="manage-risks-page9-part2.html" class="nav-btn">Next: More Tools!</a>
+
+</body>
+</html>

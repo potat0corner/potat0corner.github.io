@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Risks</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('spongebob-page.png');
+            background-size: cover;
+            height: 100vh;
+            cursor: url('jellyfish cursor.png'), auto;
+        }
+
+        /* Container Styles */
+        .container {
+            width: 960px;
+            height: 540px;
+            background-color: rgb(252, 252, 252);
+            border: 4px solid #9500ac;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+            position: relative;
+            overflow: hidden; /* Prevents content from overflowing */
+        }
+
+        /* Back Arrow Styles */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem; 
+            font-weight: 300; 
+            color: #9500ac; 
+            text-decoration: none; 
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 10px;
+        }
+
+        .back-arrow:hover {
+            background-color: #dfefff;
+        }
+
+       /* Left Content Box Styles */
+        .left-content-box {
+            width: 67%;
+            display: grid;
+            grid-template-columns: 1fr; 
+            grid-gap: 15px; 
+            margin-right: 20px; 
+            height: 100%; /* Ensure it fills the container */
+            overflow-y: auto; /* Enable scrolling */
+            padding-right: 10px; /* Add padding to avoid content touching the scrollbar */
+        }
+
+        /* Individual Content Box Styles */
+        .content-box {
+            background-color: #f1fcff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 580px;
+        }
+
+
+        /* Row Styles for Aligning Heading and Text */
+        .row {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 25px; 
+        }
+
+        /* Heading Styles */
+        .row h2 {
+            font-size: 1.2rem;
+            color: #dd67c3;
+            margin: 0;
+            flex-shrink: 0; 
+            width: 20%; 
+            text-align: left;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+        }
+
+        /* Paragraph Styles */
+        .row p {
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+            flex-grow: 1;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        /* Right Side Box Styles */
+        .right-content-box {
+            width: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-left: 20px;
+            height: 420px;
+            margin-top: 78px;
+        }
+
+        .right-content-box img {
+            width: 260px;
+            height: 500px;
+            border-radius: 8px;
+        }
+
+        .right-content-box .image-text {
+            font-size: 0.9rem;
+            color: #333;
+            text-align: center;
+            margin-top: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        /* Headline Wrapper Styles */
+        .headline-wrapper {
+            grid-column: 1 / span 1; 
+            text-align: center;
+            margin-bottom: -20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #003572;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /* Navigation Button */
+        .nav-btn {
+            position: absolute;
+            top: 20px;  /* Move to the top */
+            right: 20px; /* Align to the right */
+            padding: 10px 20px;
+            background-color: #53a6ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.5s;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin-top: 150px;
+            margin-right: 250px;
+        }
+
+        .nav-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Scrollbar Styling (for modern browsers) */
+        .left-content-box::-webkit-scrollbar {
+            width: 8px; /* Scrollbar width */
+        }
+
+        .left-content-box::-webkit-scrollbar-thumb {
+            background-color: #b9b9b9; /* Scrollbar thumb color */
+            border-radius: 5px; /* Rounded edges */
+        }
+
+        .left-content-box::-webkit-scrollbar-thumb:hover {
+            background-color: #c7c7c7; /* Thumb color on hover */
+        }
+
+        .left-content-box::-webkit-scrollbar-track {
+            background-color: #f1fcff; /* Scrollbar track color */
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Back Arrow -->
+        <a href="risks-page7.html" class="back-arrow">←</a>        
+
+        <!-- Left Content Box -->
+        <div class="left-content-box">
+            <!-- Headline -->
+            <div class="headline-wrapper">
+                <h1>Types of AI-generated Risks</h1>
+            </div>
+        <!-- Grid Content -->
+        <div class="content-box">
+            <div class="row">
+                <h2>Images</h2>
+                <p>Editing pictures to change appearances, widely used on social media.</p>
+            </div>
+        </div>
+        <div class="content-box">
+            <div class="row">
+                <h2>Video deepfake</h2>
+                <p>Improving their output based on data to fit users' needs.</p>
+            </div>
+        </div>
+        <div class="content-box">
+            <div class="row">
+                <h2>Audio deepfake</h2>
+                <p>Creating voice recordings that mimic someone's voice, used for deception.</p>
+            </div>
+        </div>
+        <div class="content-box">
+            <div class="row">
+                <h2>Real-time / Live deepfake</h2>
+                <p>Generating instant audio and video copies, used for immersive experiences or controlling others.</p>
+            </div>
+        </div>
+        <div class="content-box">
+            <div class="row">
+                <h2>Text generation</h2>
+                <p>Creating fake text imitating someone's writing style, used for spreading misinformation.</p>
+            </div>
+        </div>
+        </div>
+
+        <!-- Right Side Box -->
+        <div class="right-content-box">
+        <img src="risks.png" alt="Risks png">
+        </div>
+        </div>
+
+    <!-- Navigation Button -->
+    <a href="manage-risks-page9.html" class="nav-btn">Next: Managing Gen AI Risks!</a>
+</body>
+</html>
